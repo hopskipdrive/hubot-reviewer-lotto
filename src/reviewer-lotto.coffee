@@ -31,8 +31,6 @@ module.exports = (robot) ->
   ghOrg                 = process.env.HUBOT_GITHUB_ORG
   ghDefaultReviewerTeam = process.env.HUBOT_GITHUB_REVIEWER_TEAM
   ghWithAvatar          = process.env.HUBOT_GITHUB_WITH_AVATAR
-  normalMessage         = process.env.HUBOT_REVIEWER_LOTTO_MESSAGE || "Please review this." + codeReviewChecklist
-  politeMessage         = process.env.HUBOT_REVIEWER_LOTTO_POLITE_MESSAGE || "#{normalMessage} :bow::bow::bow::bow:" + codeReviewChecklist
   codeReviewChecklist   = "\n\n#### Code Review Checklist:\n"                                      +
                           "- **All Code**\n"                                                       +
                           "  - [ ] Intent of the code/changes are clear?\n"                        +
@@ -49,6 +47,8 @@ module.exports = (robot) ->
                           "  - [ ] All migrations are reversable: `rake db:rollback`\n"            +
                           "- **Rake Tasks**\n"                                                     +
                           "  - [ ] All rake tasks run on a clone of production data"
+  normalMessage         = process.env.HUBOT_REVIEWER_LOTTO_MESSAGE || "Please review this." + codeReviewChecklist
+  politeMessage         = process.env.HUBOT_REVIEWER_LOTTO_POLITE_MESSAGE || "#{normalMessage} :bow::bow::bow::bow:" + codeReviewChecklist
   debug                 = process.env.HUBOT_REVIEWER_LOTTO_DEBUG in ["1", "true"]
 
   STATS_KEY             = 'reviewer-lotto-stats'
