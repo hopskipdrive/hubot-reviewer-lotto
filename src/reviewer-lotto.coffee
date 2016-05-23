@@ -125,7 +125,7 @@ module.exports = (robot) ->
 
   scheduledJob = new Cron('00 00 9-17 * * 1-5', (->
     pingCodeReviews()
-  ), null, true, "America/Los Angeles")
+  ), null, true, "America/Los_Angeles")
 
   if !ghToken? or !ghOrg?
     return robot.logger.error """
